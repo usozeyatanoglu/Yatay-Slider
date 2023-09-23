@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Yatay Image Card Slider</title>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="image1.jpg" alt="Resim 1">
+            </div>
+            <div class="slide">
+                <img src="image2.jpg" alt="Resim 2">
+            </div>
+            <div class="slide">
+                <img src="image3.jpg" alt="Resim 3">
+            </div>
+            <!-- Daha fazla slayt ekleyebilirsiniz -->
+        </div>
+    </div>
+
+    <script>
+      const slider = document.querySelector(".slider");
+let scrollValue = 0;
+
+function slide(direction) {
+    if (direction === "next") {
+        scrollValue += 100;
+    } else {
+        scrollValue -= 100;
+    }
+
+    if (scrollValue > 200) {
+        scrollValue = 0;
+    } else if (scrollValue < 0) {
+        scrollValue = 200;
+    }
+
+    slider.style.transform = `translateX(-${scrollValue}%)`;
+}
+
+setInterval(() => {
+    slide("next");
+}, 3000); // Otomatik kaydırma için 3 saniyede bir değiştirin
+
+    </script>
+</body>
+</html>
